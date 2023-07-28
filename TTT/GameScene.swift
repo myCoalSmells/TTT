@@ -138,41 +138,43 @@ class GameScene: SKScene {
         }
     }
 
-    func gameOver() -> (over: Bool, winner: CellState?) {
+    func gameOver() -> (over: Bool, winner: CellState?, winningLine: [String]?) {
         // row
         for i in 0..<3 {
             if board[i][0] != .null && board[i][0] == board[i][1] && board[i][0] == board[i][2] {
-                return (true, board[i][0])
+                return (true, board[i][0], ["\(i)-0", "\(i)-1", "\(i)-2"])
             }
         }
 
         // col
         for i in 0..<3 {
             if board[0][i] != .null && board[0][i] == board[1][i] && board[0][i] == board[2][i] {
-                return (true, board[0][i])
+                return (true, board[0][i], ["0-\(i)", "1-\(i)", "2-\(i)"])
             }
         }
 
         // diag
         if board[0][0] != .null && board[0][0] == board[1][1] && board[0][0] == board[2][2] {
-            return (true, board[0][0])
+            return (true, board[0][0], ["0-0", "1-1", "2-2"])
         }
 
         if board[2][0] != .null && board[2][0] == board[1][1] && board[2][0] == board[0][2] {
-            return (true, board[2][0])
+            return (true, board[2][0], ["2-0", "1-1", "0-2"])
         }
 
         // all cells filled
         for i in 0..<3 {
             for j in 0..<3 {
                 if board[i][j] == .null {
-                    return (false, nil)
+                    return (false, nil, nil)
                 }
             }
         }
 
-        return (true, nil)
+        return (true, nil, nil)
     }
+
+
 
 
     func resetBoard() {
@@ -189,6 +191,8 @@ class GameScene: SKScene {
         //     }
         // })
     }
+    
+
 
     
     func configureGameState() {
@@ -198,8 +202,6 @@ class GameScene: SKScene {
         
         states = GKStateMachine(states: [
             GameLoadState(scene: self),
-            XState(scene: self),
-            OState(scene: self),
             HowToPlay(scene: self),
             PlayState(scene: self),
             GameEndState(scene: self)

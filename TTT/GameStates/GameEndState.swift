@@ -23,20 +23,22 @@ class GameEndState: GKState {
         let screenSize = UIScreen.main.bounds.size
         
         let result = scene.gameOver()
-        var gameOverText = "Game Over!"
-        if let winner = result.winner {
-            gameOverText += winner == .x ? " X wins!" : " O wins!"
-        } else {
-            gameOverText += " Draw."
-        }
-        let gameOverLabel = SKLabelNode(text: gameOverText)
+            var gameOverText = "Game Over!"
+            if let winner = result.winner {
+                gameOverText += winner == .x ? " X wins!" : " O wins!"
+                if let winningLine = result.winningLine {
+                    drawWinningLine(winningLine: winningLine)
+                }
+            } else {
+                gameOverText += " Draw."
+            }
         let labelNode = SKLabelNode(text: gameOverText)
         labelNode.position = CGPoint(x: screenSize.width / 2, y: screenSize.height / 2 + 200)
         labelNode.fontSize = 48
         labelNode.fontColor = UIColor.red
         scene.addChild(labelNode)
         
-        // Adding Restart button
+        // Restart button
         let restartButton = SKLabelNode(text: "Restart")
         restartButton.position = CGPoint(x: screenSize.width / 2, y: screenSize.height / 2 - 200)
         restartButton.fontSize = 36
@@ -48,6 +50,25 @@ class GameEndState: GKState {
     override func willExit(to nextState: GKState) {
         scene.childNode(withName: "restartButton")?.removeFromParent()
     }
+
+    func drawWinningLine(winningLine: [String]) {
+        guard let startPointNode = scene.childNode(withName: winningLine[0]),
+              let endPointNode = scene.childNode(withName: winningLine[2]) else {
+            return
+        }
+        
+        let startPoint = CGPoint(x: startPointNode.frame.midX, y: startPointNode.frame.midY)
+        let endPoint = CGPoint(x: endPointNode.frame.midX, y: endPointNode.frame.midY)
+        
+        let line = SKShapeNode()
+        let pathToDraw = CGMutablePath()
+        pathToDraw.move(to: startPoint)
+        pathToDraw.addLine(to: endPoint)
+        line.path = pathToDraw
+        line.strokeColor = SKColor.red
+        scene.addChild(line)
+    }
+
 
 }
 
