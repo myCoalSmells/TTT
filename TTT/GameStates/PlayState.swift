@@ -24,11 +24,11 @@ class PlayState: GKState {
     }
 
     override func willExit(to nextState: GKState) {
-        // Switch turns
+        // switch turns
         isXTurn = !isXTurn
     }
     
-    func draw(x: CGFloat, y: CGFloat) {
+    func draw(x: CGFloat, y: CGFloat) { // draw the respective icons
         var imageSystemName: String?
         if isXTurn {
             imageSystemName = "xmark"

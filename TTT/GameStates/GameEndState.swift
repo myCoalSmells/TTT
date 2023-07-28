@@ -21,7 +21,7 @@ class GameEndState: GKState {
         print("Game Ended")
         
         let screenSize = UIScreen.main.bounds.size
-        
+        // determine who won from gameover function, also get winning line
         let result = scene.gameOver()
             var gameOverText = "Game Over!"
             if let winner = result.winner {
@@ -32,13 +32,14 @@ class GameEndState: GKState {
             } else {
                 gameOverText += " Draw."
             }
+        
         let labelNode = SKLabelNode(text: gameOverText)
         labelNode.position = CGPoint(x: screenSize.width / 2, y: screenSize.height / 2 + 200)
         labelNode.fontSize = 48
         labelNode.fontColor = UIColor.red
         scene.addChild(labelNode)
         
-        // Restart button
+        // draw restar button
         let restartButton = SKLabelNode(text: "Restart")
         restartButton.position = CGPoint(x: screenSize.width / 2, y: screenSize.height / 2 - 200)
         restartButton.fontSize = 36
@@ -51,7 +52,7 @@ class GameEndState: GKState {
         scene.childNode(withName: "restartButton")?.removeFromParent()
     }
 
-    func drawWinningLine(winningLine: [String]) {
+    func drawWinningLine(winningLine: [String]) { // draw winning line
         guard let startPointNode = scene.childNode(withName: winningLine[0]),
               let endPointNode = scene.childNode(withName: winningLine[2]) else {
             return

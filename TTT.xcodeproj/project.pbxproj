@@ -13,8 +13,6 @@
 		85AA4CA32A5E42C8002CCBA7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85AA4CA22A5E42C8002CCBA7 /* Preview Assets.xcassets */; };
 		85AA4CAA2A5E42DC002CCBA7 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AA4CA92A5E42DC002CCBA7 /* GameScene.swift */; };
 		85AA4CAD2A5E53D6002CCBA7 /* GameLoadState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85AA4CAC2A5E53D6002CCBA7 /* GameLoadState.swift */; };
-		B2659A252A705357009634DA /* HowToPlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2659A242A705357009634DA /* HowToPlay.swift */; };
-		B2659A2D2A732A1E009634DA /* GameLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2659A2C2A732A1E009634DA /* GameLogic.swift */; };
 		B2659A372A73316C009634DA /* PlayState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2659A362A73316C009634DA /* PlayState.swift */; };
 		B2AF9E182A63615A00123B47 /* GameEndState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2AF9E172A63615A00123B47 /* GameEndState.swift */; };
 /* End PBXBuildFile section */
@@ -27,8 +25,6 @@
 		85AA4CA22A5E42C8002CCBA7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		85AA4CA92A5E42DC002CCBA7 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		85AA4CAC2A5E53D6002CCBA7 /* GameLoadState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLoadState.swift; sourceTree = "<group>"; };
-		B2659A242A705357009634DA /* HowToPlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlay.swift; sourceTree = "<group>"; };
-		B2659A2C2A732A1E009634DA /* GameLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLogic.swift; sourceTree = "<group>"; };
 		B2659A362A73316C009634DA /* PlayState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayState.swift; sourceTree = "<group>"; };
 		B2AF9E172A63615A00123B47 /* GameEndState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameEndState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,7 +61,6 @@
 			children = (
 				85AA4CAB2A5E52EE002CCBA7 /* GameStates */,
 				85AA4C9B2A5E42C7002CCBA7 /* TTTApp.swift */,
-				B2659A2C2A732A1E009634DA /* GameLogic.swift */,
 				85AA4C9D2A5E42C7002CCBA7 /* ContentView.swift */,
 				85AA4CA92A5E42DC002CCBA7 /* GameScene.swift */,
 				85AA4C9F2A5E42C8002CCBA7 /* Assets.xcassets */,
@@ -87,7 +82,6 @@
 			children = (
 				85AA4CAC2A5E53D6002CCBA7 /* GameLoadState.swift */,
 				B2AF9E172A63615A00123B47 /* GameEndState.swift */,
-				B2659A242A705357009634DA /* HowToPlay.swift */,
 				B2659A362A73316C009634DA /* PlayState.swift */,
 			);
 			path = GameStates;
@@ -164,8 +158,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				85AA4CAA2A5E42DC002CCBA7 /* GameScene.swift in Sources */,
-				B2659A252A705357009634DA /* HowToPlay.swift in Sources */,
-				B2659A2D2A732A1E009634DA /* GameLogic.swift in Sources */,
 				85AA4CAD2A5E53D6002CCBA7 /* GameLoadState.swift in Sources */,
 				85AA4C9E2A5E42C7002CCBA7 /* ContentView.swift in Sources */,
 				B2AF9E182A63615A00123B47 /* GameEndState.swift in Sources */,

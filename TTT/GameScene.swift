@@ -84,11 +84,11 @@ class GameScene: SKScene {
             
             for node in touchedNodes {
                 if node == playButton {
-                    // Enter the XState and remove the welcome screen
+                    // play game now
                     states?.enter(PlayState.self)
-                    return  // Only process one touch
+                    return  // only process one touch
                 }
-                if node.name == "restartButton" {
+                if node.name == "restartButton" { // restart game button
                     print("Restart button touched")
                     resetBoard()
                     states?.enter(GameLoadState.self)
@@ -174,26 +174,10 @@ class GameScene: SKScene {
         return (true, nil, nil)
     }
 
-
-
-
     func resetBoard() {
-        // Reset game board data
         self.board = Array(repeating: Array(repeating: .null, count: 3), count: 3)
-        
-        // Remove all sprite nodes
         self.removeAllChildren()
-
-        // Or remove only relevant sprite nodes like X, O and GameOver label
-        // self.enumerateChildNodes(withName: "//*", using: { (node, stop) in
-        //     if node.name == "xmark" || node.name == "circle" || node.name == "GameOverLabel" {
-        //         node.removeFromParent()
-        //     }
-        // })
     }
-    
-
-
     
     func configureGameState() {
         //more information on how state machine works
@@ -202,7 +186,6 @@ class GameScene: SKScene {
         
         states = GKStateMachine(states: [
             GameLoadState(scene: self),
-            HowToPlay(scene: self),
             PlayState(scene: self),
             GameEndState(scene: self)
         ])
